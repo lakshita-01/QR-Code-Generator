@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced QR Code Generator</title>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="qr-background"></div>
+    <button class="dark-mode-toggle" id="darkModeToggle">🌓</button>
+    
+    <div class="container">
+        <h1>Advanced QR Code Generator</h1>
+        
+        <div class="tab-container">
+            <div class="tab active" data-tab="url">URL</div>
+            <div class="tab" data-tab="contact">Contact</div>
+            <div class="tab" data-tab="wifi">WiFi</div>
+            <div class="tab" data-tab="sms">SMS</div>
+            <div class="tab" data-tab="email">Email</div>
+            <div class="tab" data-tab="text">Text</div>
+        </div>
+        
+        <!-- URL Tab -->
+        <div class="form-group active" id="url-form">
+            <div class="input-group">
+                <label for="url">Website URL:</label>
+                <input type="url" id="url" placeholder="https://example.com">
+                <div class="error-message" id="url-error">Please enter a valid URL (e.g., https://example.com)</div>
+            </div>
+        </div>
+        
+        <!-- Contact Tab -->
+        <div class="form-group" id="contact-form">
+            <div class="input-group">
+                <label for="contact-name">Name:</label>
+                <input type="text" id="contact-name" placeholder="John Doe">
+            </div>
+            <div class="input-group">
+                <label for="contact-phone">Phone:</label>
+                <input type="tel" id="contact-phone" placeholder="+1234567890">
+            </div>
+            <div class="input-group">
+                <label for="contact-email">Email:</label>
+                <input type="email" id="contact-email" placeholder="john@example.com">
+            </div>
+            <div class="input-group">
+                <label for="contact-address">Address:</label>
+                <textarea id="contact-address" placeholder="123 Main St, City, Country"></textarea>
+            </div>
+        </div>
+        
+        <!-- WiFi Tab -->
+        <div class="form-group" id="wifi-form">
+            <div class="input-group">
+                <label for="wifi-ssid">Network Name (SSID):</label>
+                <input type="text" id="wifi-ssid" placeholder="MyWiFiNetwork">
+            </div>
+            <div class="input-group">
+                <label for="wifi-password">Password:</label>
+                <input type="text" id="wifi-password" placeholder="wifipassword123">
+            </div>
+            <div class="input-group">
+                <label for="wifi-security">Security Type:</label>
+                <select id="wifi-security">
+                    <option value="WPA">WPA/WPA2</option>
+                    <option value="WEP">WEP</option>
+                    <option value="nopass">No Password</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- SMS Tab -->
+        <div class="form-group" id="sms-form">
+            <div class="input-group">
+                <label for="sms-number">Phone Number:</label>
+                <input type="tel" id="sms-number" placeholder="+1234567890">
+            </div>
+            <div class="input-group">
+                <label for="sms-message">Message:</label>
+                <textarea id="sms-message" placeholder="Hello!"></textarea>
+            </div>
+        </div>
+        
+        <!-- Email Tab -->
+        <div class="form-group" id="email-form">
+            <div class="input-group">
+                <label for="email-address">Email Address:</label>
+                <input type="email" id="email-address" placeholder="recipient@example.com">
+            </div>
+            <div class="input-group">
+                <label for="email-subject">Subject:</label>
+                <input type="text" id="email-subject" placeholder="Subject">
+            </div>
+            <div class="input-group">
+                <label for="email-body">Body:</label>
+                <textarea id="email-body" placeholder="Message content"></textarea>
+            </div>
+        </div>
+        
+        <!-- Text Tab -->
+        <div class="form-group" id="text-form">
+            <div class="input-group">
+                <label for="text-content">Text Content:</label>
+                <textarea id="text-content" placeholder="Enter any text you want to encode"></textarea>
+            </div>
+        </div>
+        
+        <div class="logo-control">
+            <label for="logo-upload">Add Logo (Optional):</label>
+            <input type="file" id="logo-upload" accept="image/*" style="display: none;">
+            <button onclick="document.getElementById('logo-upload').click()">Choose Logo</button>
+            <div class="logo-preview" id="logo-preview">
+                <span style="color: var(--secondary);">No logo</span>
+            </div>
+        </div>
+        
+        <div class="size-control">
+            <label for="qrSize">Size (px):</label>
+            <input type="number" id="qrSize" min="100" max="500" value="200">
+        </div>
+        
+        <div id="qrCodeContainer" class="qr-container">
+            <div id="qrcode"></div>
+            <div class="qr-logo" id="qr-logo"></div>
+        </div>
+        
+        <div class="success-message" id="success-message">QR code generated successfully!</div>
+        
+        <div class="button-group">
+            <button id="generateBtn">Generate QR Code</button>
+            <button id="downloadBtn" disabled>Download QR Code</button>
+            <button id="clearBtn">Clear</button>
+        </div>
+    </div>
+     <script scr="script.js"></script>
+    
+</body>
+</html>
